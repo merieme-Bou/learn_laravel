@@ -12,9 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-           $table ->string('avatar')->after('email')->nullable();
+
+           $table ->string('avatar')->after('email')->nullable()->default(null);
+
         });
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -22,7 +26,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
+
             $table->dropColumn('avatar');
+
         });
     }
 };
